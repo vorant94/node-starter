@@ -1,9 +1,7 @@
 pre-push:
-  only:
-    - run: npx tsx scripts/is-non-docs-change.ts
   commands:
     ts:
-      run: npm run tsc
+      run: npm run tsc --workspaces
 pre-commit:
   commands:
     lint:
