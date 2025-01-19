@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { helloWorld } from "api";
 import { memo } from "react";
 import { cn } from "../utils/cn.ts";
 
@@ -10,6 +11,8 @@ export const Home = memo(() => {
 			return await res.json();
 		},
 	});
+
+	helloWorld();
 
 	return (
 		<div className={cn("bg-amber-300")}>

@@ -8,6 +8,11 @@ export default defineConfig({
 	server: {
 		port: 3000, // so the web can reliably proxy to server
 	},
+	resolve: {
+		alias: {
+			api: path.resolve(process.cwd(), "../api"),
+		},
+	},
 	esbuild: {
 		target: "es2022", // so the "using" keyword introduced with TS 5.2 is available
 	},

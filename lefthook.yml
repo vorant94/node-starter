@@ -1,7 +1,7 @@
 pre-push:
   commands:
     ts:
-      run: npm run tsc --workspaces
+      run: npm run tsc --workspaces --if-present
 pre-commit:
   commands:
     lint:
