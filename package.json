@@ -1,0 +1,18 @@
+{
+	"name": "node-starter",
+	"type": "module",
+	"license": "MIT",
+	"scripts": {
+		"lint:check": "biome check .",
+		"lint:write": "biome check --write .",
+		"lint:write:unsafe": "biome check --write --unsafe .",
+		"prepare": "lefthook install"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.3",
+		"lefthook": "^1.10.8"
+	},
+	"workspaces": [
+		"packages/*"
+	]
+}
