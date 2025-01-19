@@ -1,8 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles/global.css";
-import { BrowserRouter, Route, Routes } from "react-router";
-import { Home } from "./pages/home.tsx";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { RouterProvider } from "react-router/dom";
+import { queryClient } from "./globals/query-client.ts";
+import { router } from "./globals/router.tsx";
 
 if (import.meta.env.DEV) {
 	window.addEventListener("unhandledrejection", ({ reason }) => {
@@ -25,14 +27,8 @@ if (!root) {
 
 createRoot(root).render(
 	<StrictMode>
-		<BrowserRouter>
-			<Routes>
-				{/* TODO add lazy-loading here */}
-				<Route
-					index
-					element={<Home />}
-				/>
-			</Routes>
-		</BrowserRouter>
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router} />
+		</QueryClientProvider>
 	</StrictMode>,
 );

@@ -5,6 +5,9 @@ import devServer from "@hono/vite-dev-server";
 import { defineConfig } from "vite";
 
 export default defineConfig({
+	server: {
+		port: 3000, // so the web can reliably proxy to server
+	},
 	esbuild: {
 		target: "es2022", // so the "using" keyword introduced with TS 5.2 is available
 	},

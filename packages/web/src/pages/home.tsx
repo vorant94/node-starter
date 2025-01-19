@@ -1,6 +1,19 @@
+import { useQuery } from "@tanstack/react-query";
 import { memo } from "react";
 import { cn } from "../utils/cn.ts";
 
 export const Home = memo(() => {
-	return <div className={cn("bg-amber-300")}>hello world!</div>;
+	const { isPending, error, data } = useQuery({
+		queryKey: ["hello world"],
+		queryFn: async () => {
+			const res = await fetch("/api");
+			return await res.json();
+		},
+	});
+
+	return (
+		<div className={cn("bg-amber-300")}>
+			{isPending ? "pending" : error ? "error" : JSON.stringify(data)}
+		</div>
+	);
 });
