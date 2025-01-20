@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { helloWorld } from "api";
+import { Card } from "@mantine/core";
 import { memo } from "react";
 import {
 	DefaultLayout,
@@ -8,20 +7,13 @@ import {
 import { cn } from "../utils/cn.ts";
 
 export const DashboardPage = memo(() => {
-	const { isPending, error, data } = useQuery({
-		queryKey: ["hello world"],
-		queryFn: async () => {
-			const res = await fetch("/api");
-			return await res.json();
-		},
-	});
-
-	helloWorld();
-
 	return (
 		<DefaultLayout header={<DefaultLayoutHeader />}>
-			<div className={cn("bg-amber-300")}>
-				{isPending ? "pending" : error ? "error" : JSON.stringify(data)}
+			<div className={cn("grid flex-1 grid-cols-2 gap-2")}>
+				<Card className={cn("flex items-center justify-center")}>Card 1</Card>
+				<Card className={cn("flex items-center justify-center")}>Card 2</Card>
+				<Card className={cn("flex items-center justify-center")}>Card 3</Card>
+				<Card className={cn("flex items-center justify-center")}>Card 4</Card>
 			</div>
 		</DefaultLayout>
 	);

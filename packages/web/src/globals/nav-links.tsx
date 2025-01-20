@@ -1,12 +1,12 @@
 import { IconChartBar } from "@tabler/icons-react";
 import type { ReactNode } from "react";
 import { Icon } from "../components/icon.tsx";
-import { route } from "./route.ts";
+import { rootRoute } from "./route.ts";
 
 export const topNavLinks: Array<NavLink> = [
 	{
 		label: "dashboard",
-		path: `/${route.dashboard}`,
+		path: `/${rootRoute.dashboard}`,
 		icon: <Icon icon={IconChartBar} />,
 	},
 ];
